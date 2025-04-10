@@ -36,13 +36,11 @@ export class User {
   })
   gender: string;
 
-
-  
-//   @Prop({ type: Object })
-//   createdBy: {
-//     _id: mongoose.Schema.Types.ObjectId;
-//     email: string;
-//   };
+  //   @Prop({ type: Object })
+  //   createdBy: {
+  //     _id: mongoose.Schema.Types.ObjectId;
+  //     email: string;
+  //   };
 
   @Prop({ type: Object })
   updatedBy: {

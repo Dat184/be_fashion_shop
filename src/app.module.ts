@@ -23,9 +23,6 @@ import { UsersModule } from './users/users.module';
       isGlobal: true,
     }),
     UsersModule,
-  
-
-    
   ],
   controllers: [AppController],
   providers: [AppService],

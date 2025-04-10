@@ -1,6 +1,5 @@
-export enum gender{
-    MALE = "male",
-    FEMALE = "female",
-    OTHER = "other",
-
+export enum gender {
+  MALE = 'male',
+  FEMALE = 'female',
+  OTHER = 'other',
 }
