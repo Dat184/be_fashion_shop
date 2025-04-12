@@ -1,22 +1,24 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose from 'mongoose';
+import mongoose, { HydratedDocument } from 'mongoose';
 import { gender } from 'src/enums/gender.enum';
 import { Role } from 'src/enums/role.enum';
+
+export type UserDocument = HydratedDocument<User>;
 
 @Schema({
   timestamps: true, // Tự động thêm createdAt và updatedAt
 })
 export class User {
-  @Prop({ type: String, unique: true, required: true })
+  @Prop({ type: String, unique: true })
   email: string;
 
-  @Prop({ type: String, required: true })
+  @Prop({ type: String })
   name: string;
 
-  @Prop({ type: String, required: true })
+  @Prop({ type: String })
   password: string;
 
-  @Prop({ type: String, unique: true })
+  @Prop({ type: String })
   phone: string;
 
   @Prop({ type: String })
