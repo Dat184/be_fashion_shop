@@ -5,7 +5,7 @@ import { In } from 'typeorm';
 import { InjectModel } from '@nestjs/mongoose';
 import { UserDocument, User as UserM } from './schemas/user.schemas';
 import { SoftDeleteModel } from 'soft-delete-plugin-mongoose';
-import { genSaltSync, hashSync } from 'bcryptjs';
+import { compareSync, genSaltSync, hashSync } from 'bcryptjs';
 import { IUser } from './users.interface';
 import aqp from 'api-query-params';
 import mongoose from 'mongoose';
@@ -132,5 +132,15 @@ export class UsersService {
     //   // },
     // );
     return this.userModel.softDelete({ _id: id });
+  }
+
+  // validate user email
+  async findOneByUsername(username: string) {
+    const user = await this.userModel.findOne({ email: username }).exec();
+    return user;
+  }
+
+  isValidPassword(password: string, hash: string) {
+    return compareSync(password, hash);
   }
 }
